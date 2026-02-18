@@ -1,0 +1,299 @@
+{
+  "_comment": "Closed Claw Assistant Configuration File",
+  "_version": "1.0.0",
+  
+  "app": {
+    "_comment": "General application settings",
+    "name": "Closed Claw Assistant",
+    "version": "1.0.0",
+    "environment": "production",
+    "debug": false,
+    "log_level": "INFO"
+  },
+  
+  "paths": {
+    "_comment": "Directory paths - use absolute paths or ~/ for home",
+    "base_dir": "~/closed-claw",
+    "logs_dir": "~/closed-claw/logs",
+    "models_dir": "~/closed-claw/models",
+    "data_dir": "~/closed-claw/data",
+    "config_dir": "~/closed-claw/config",
+    "temp_dir": "~/closed-claw/tmp"
+  },
+  
+  "ai": {
+    "_comment": "AI/LLM configuration",
+    "provider": "llama.cpp",
+    "model_file": "llama-2-7b-chat.Q4_K_M.gguf",
+    "context_length": 2048,
+    "max_tokens": 512,
+    "temperature": 0.7,
+    "top_p": 0.9,
+    "top_k": 40,
+    "repeat_penalty": 1.1,
+    "server": {
+      "host": "127.0.0.1",
+      "port": 8080,
+      "threads": 4,
+      "batch_size": 512
+    }
+  },
+  
+  "telegram": {
+    "_comment": "Telegram Bot settings - get token from @BotFather",
+    "enabled": true,
+    "bot_token": "",
+    "admin_user_ids": [],
+    "allowed_chat_ids": [],
+    "webhook": {
+      "enabled": false,
+      "url": "",
+      "port": 8443,
+      "certificate_path": ""
+    },
+    "polling": {
+      "enabled": true,
+      "interval": 1.0,
+      "timeout": 10
+    },
+    "commands": {
+      "start": "Welcome to Closed Claw Assistant!",
+      "help": "Available commands: /status, /ask, /search, /settings",
+      "status": "Check system status",
+      "ask": "Ask the AI assistant",
+      "search": "Search your data"
+    }
+  },
+  
+  "security": {
+    "_comment": "Security settings - keep these enabled for safety",
+    "sandbox_enabled": true,
+    "audit_logging": true,
+    "banking_blocker": true,
+    "encryption": {
+      "enabled": true,
+      "algorithm": "AES-256-GCM",
+      "key_derivation": "PBKDF2",
+      "iterations": 100000
+    },
+    "allowed_paths": [
+      "~/closed-claw"
+    ],
+    "blocked_paths": [
+      "~/phonepe",
+      "~/gpay",
+      "~/paytm",
+      "~/Downloads/phonepe",
+      "~/Downloads/gpay",
+      "~/Downloads/paytm"
+    ],
+    "blocked_apps": [
+      "phonepe",
+      "gpay",
+      "googlepay",
+      "paytm",
+      "bhim",
+      "cred",
+      "mobikwik",
+      "freecharge",
+      "amazonpay",
+      "paypal",
+      "payzapp",
+      "hdfc",
+      "sbi",
+      "icici",
+      "axis",
+      "kotak",
+      "pnb",
+      "bob",
+      "canara",
+      "union",
+      "idbi",
+      "yesbank",
+      "bandhan"
+    ],
+    "blocked_keywords": [
+      "upi",
+      "vpa",
+      "@oksbi",
+      "@okhdfcbank",
+      "@okicici",
+      "@okaxis",
+      "@paytm",
+      "@upi",
+      "@ybl",
+      "upi pin",
+      "qr code payment"
+    ],
+    "session": {
+      "timeout_minutes": 30,
+      "max_concurrent": 5
+    }
+  },
+  
+  "audit": {
+    "_comment": "Audit logging configuration",
+    "enabled": true,
+    "log_level": "INFO",
+    "retention_days": 30,
+    "tamper_detection": true,
+    "log_events": {
+      "permission_checks": true,
+      "data_access": true,
+      "errors": true,
+      "security_events": true,
+      "user_actions": true,
+      "system_events": true
+    },
+    "rotation": {
+      "enabled": true,
+      "max_file_size_mb": 100,
+      "max_files": 10
+    }
+  },
+  
+  "sandbox": {
+    "_comment": "Sandbox/security isolation settings",
+    "enabled": true,
+    "strict_mode": true,
+    "allow_symlinks": false,
+    "check_path_traversal": true,
+    "check_blocked_patterns": true,
+    "allowed_extensions": [
+      ".txt",
+      ".json",
+      ".md",
+      ".log",
+      ".csv"
+    ],
+    "blocked_extensions": [
+      ".exe",
+      ".dll",
+      ".so",
+      ".dylib",
+      ".bank",
+      ".upi",
+      ".wallet"
+    ]
+  },
+  
+  "data": {
+    "_comment": "Data storage and retrieval settings",
+    "storage": {
+      "type": "sqlite",
+      "path": "~/closed-claw/data/assistant.db",
+      "backup_enabled": true,
+      "backup_interval_hours": 24
+    },
+    "indexing": {
+      "enabled": true,
+      "auto_index": true,
+      "index_path": "~/closed-claw/data/index"
+    },
+    "retention": {
+      "conversation_history_days": 90,
+      "audit_logs_days": 30,
+      "temp_files_days": 7
+    }
+  },
+  
+  "notifications": {
+    "_comment": "Notification settings",
+    "enabled": true,
+    "channels": {
+      "telegram": true,
+      "console": true,
+      "log": true
+    },
+    "alerts": {
+      "security": true,
+      "errors": true,
+      "system_status": true,
+      "model_status": false
+    }
+  },
+  
+  "performance": {
+    "_comment": "Performance tuning",
+    "max_workers": 4,
+    "request_timeout_seconds": 30,
+    "cache_enabled": true,
+    "cache_size_mb": 100,
+    "cache_ttl_seconds": 3600,
+    "memory_limit_mb": 2048,
+    "cpu_limit_percent": 80
+  },
+  
+  "features": {
+    "_comment": "Feature toggles",
+    "rag_enabled": true,
+    "web_search": false,
+    "voice_input": false,
+    "image_analysis": false,
+    "scheduled_tasks": true,
+    "auto_backup": true,
+    "health_checks": true
+  },
+  
+  "rag": {
+    "_comment": "Retrieval-Augmented Generation settings",
+    "enabled": true,
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "chunk_size": 512,
+    "chunk_overlap": 50,
+    "top_k_results": 5,
+    "similarity_threshold": 0.7,
+    "max_context_length": 1500
+  },
+  
+  "backup": {
+    "_comment": "Backup configuration",
+    "enabled": true,
+    "interval_hours": 24,
+    "max_backups": 7,
+    "backup_path": "~/closed-claw/backups",
+    "compress": true,
+    "encrypt": true,
+    "include_data": true,
+    "include_config": true,
+    "include_logs": false
+  },
+  
+  "health": {
+    "_comment": "Health check settings",
+    "enabled": true,
+    "check_interval_seconds": 60,
+    "checks": {
+      "disk_space": true,
+      "memory": true,
+      "model_server": true,
+      "database": true,
+      "telegram_connection": true
+    },
+    "thresholds": {
+      "min_disk_space_mb": 500,
+      "max_memory_percent": 85,
+      "max_response_time_ms": 5000
+    }
+  },
+  
+  "logging": {
+    "_comment": "General logging configuration",
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "date_format": "%Y-%m-%d %H:%M:%S",
+    "handlers": {
+      "console": {
+        "enabled": true,
+        "level": "INFO"
+      },
+      "file": {
+        "enabled": true,
+        "level": "DEBUG",
+        "path": "~/closed-claw/logs/app.log",
+        "max_size_mb": 50,
+        "backup_count": 5
+      }
+    }
+  }
+}
