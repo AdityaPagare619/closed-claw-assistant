@@ -1,0 +1,31 @@
+{
+  "_comment": "EXAMPLE CONFIG - Copy to config.local.json and add real values",
+  
+  "telegram": {
+    "bot_token": "YOUR_BOT_TOKEN_HERE",
+    "phone": "+91YOUR_PHONE_NUMBER"
+  },
+  
+  "sarvam": {
+    "api_key": "YOUR_SARVAM_API_KEY_HERE"
+  },
+  
+  "security": {
+    "pin_code": "YOUR_4_DIGIT_PIN"
+  },
+  
+  "assistant": {
+    "name": "Closed Claw",
+    "language": "auto"
+  },
+  
+  "llm": {
+    "model_path": "models/sarvam-1-q4_0_4_4.gguf",
+    "threads": 6
+  },
+  
+  "voice": {
+    "default_speaker": "meera",
+    "default_language": "hi-IN"
+  }
+}
