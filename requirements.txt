@@ -1,46 +1,12 @@
-# Closed Claw Assistant - Python Dependencies
-# Install with: pip install -r requirements.txt
-
-# Core async
-asyncio>=3.4.3
-aiohttp>=3.8.0
-
-# Telegram
-python-telegram-bot>=20.0
-telethon>=1.28.0
-
-# AI/ML
-openai>=1.0.0  # For OpenAI-compatible API (optional)
-requests>=2.31.0
-
-# Voice
-# Note: Piper TTS and Whisper installed separately via scripts
-
-# Security
-cryptography>=41.0.0
-bcrypt>=4.0.0
-
-# Database (for logs)
-sqlite3  # Built-in
-
-# Utilities
-python-dotenv>=1.0.0
-schedule>=1.2.0
-psutil>=5.9.0
-pyyaml>=6.0.0
-
-# Testing
-pytest>=7.4.0
-pytest-asyncio>=0.21.0
-pytest-cov>=4.1.0
-
-# Development
-black>=23.0.0
-flake8>=6.0.0
-mypy>=1.5.0
-
-# Android/Termux specific
-# These are installed via Termux packages, not pip:
-# - termux-api
-# - llama-cpp
-# - nodejs (for Baileys)
+asyncio
+aiofiles
+pydantic
+numpy
+cryptography
+python-dotenv
+pyTelegramBotAPI
+requests
+psutil
+sentence-transformers
+torch
+llama-cpp-python
